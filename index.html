@@ -1,0 +1,6 @@
+<head>
+  <script type="module">
+    const [agent, ...promptArray] = location.hash.split("\s");
+    (navigator.localStorage.getItem(agent) || (await import(`./gateway/${agent}.js`)).default)(promptArray.join("\s"));
+  </script>
+</head>
